@@ -25,28 +25,27 @@ public class TicketService {
 
 			for (String[] record : records) {
 				Ticket ticket = new Ticket();
-			    ticket.setTicketId(record[0]);
-                ticket.setPurchaseReference(record[1]);
-                ticket.setType(record[2]);
-                ticket.setGrandstand(record[3]);
-                ticket.setSector(record[4]);
-                ticket.setEventCode(record[5]);
-                ticket.setEventType(record[6]);
-                ticket.setMeanPrice(new BigDecimal(record[7]));
-                ticket.setCountryName(record[8]);
-                ticket.setCountryCode(record[9]);
-                ticket.setSportOrganizationCode(record[10]);
-                ticket.setDimUser(record[11]);
+				ticket.setTicketId(record[0]);
+				ticket.setPurchaseReference(record[1]);
+				ticket.setType(record[2]);
+				ticket.setGrandstand(record[3]);
+				ticket.setSector(record[4]);
+				ticket.setEventCode(record[5]);
+				ticket.setEventType(record[6]);
+				ticket.setMeanPrice(new BigDecimal(record[7]));
+				ticket.setCountryName(record[8]);
+				ticket.setCountryCode(record[9]);
+				ticket.setSportOrganizationCode(record[10]);
+				ticket.setDimUser(record[11]);
 
+				// ticket.setUpdatedAt(LocalDateTime.parse(record[12],
+				// DateTimeFormatter.ISO_DATE_TIME));
 
-			//ticket.setUpdatedAt(LocalDateTime.parse(record[12], DateTimeFormatter.ISO_DATE_TIME));
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
 
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
-
-                
-                String dateString = record[12]; // Ajusta el índice según la posición de `updated_at` en tu CSV
-                LocalDateTime updatedAt = LocalDateTime.parse(dateString, formatter);
-                ticket.setUpdatedAt(updatedAt);
+				String dateString = record[12]; // Ajusta el índice según la posición de `updated_at` en tu CSV
+				LocalDateTime updatedAt = LocalDateTime.parse(dateString, formatter);
+				ticket.setUpdatedAt(updatedAt);
 
 				ticketRepository.save(ticket);
 			}

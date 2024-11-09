@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>edu.palermo.bi</groupId>
-	<artifactId>ticket-loader</artifactId>
+	<artifactId>ticketup-api</artifactId>
 	<version>1.0.0</version>
-	<name>ticket-loader</name>
-	<description>ticket-loader</description>
+	<name>ticketup-api</name>
+	<description>ticketup-api</description>
 	<url />
 	<licenses>
 		<license />
