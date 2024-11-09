@@ -1,4 +1,4 @@
-package com.example.demo;
+package edu.palermo.bi.ticketup.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -40,6 +40,8 @@ public class Ticket {
 
 	private LocalDateTime updatedAt;
 
+	/*----------------------------------------------------------------------------*/
+
 	public Ticket(String ticketId, String purchaseReference, String type, String grandstand, String sector,
 			String eventCode, String eventType, BigDecimal meanPrice, String countryName, String countryCode,
 			String sportOrganizationCode, String dimUser, LocalDateTime updatedAt) {
@@ -61,6 +63,8 @@ public class Ticket {
 
 	public Ticket() {
 	}
+
+	/*----------------------------------------------------------------------------*/
 
 	public String getTicketId() {
 		return ticketId;

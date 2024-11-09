@@ -1,4 +1,4 @@
-package com.example.demo;
+package edu.palermo.bi.ticketup.service;
 
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
@@ -6,20 +6,31 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.opencsv.CSVReader;
 
+import edu.palermo.bi.ticketup.model.Ticket;
+import edu.palermo.bi.ticketup.repository.TicketRepository;
+
 @Service
 public class TicketService {
 
-	@Autowired
-	private TicketRepository ticketRepository;
+	private final TicketRepository ticketRepository;
+
+	/*----------------------------------------------------------------------------*/
+
+	public TicketService(TicketRepository ticketRepository) {
+		this.ticketRepository = ticketRepository;
+	}
+
+	/*----------------------------------------------------------------------------*/
 
 	public void saveTicketsFromCSV(MultipartFile file) {
+
 		try (CSVReader csvReader = new CSVReader(new InputStreamReader(file.getInputStream()))) {
+
 			List<String[]> records = csvReader.readAll();
 			records.remove(0); // Elimina el encabezado del CSV
 
