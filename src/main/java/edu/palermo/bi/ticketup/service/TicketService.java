@@ -49,12 +49,9 @@ public class TicketService {
 				ticket.setSportOrganizationCode(record[10]);
 				ticket.setDimUser(record[11]);
 
-				// ticket.setUpdatedAt(LocalDateTime.parse(record[12],
-				// DateTimeFormatter.ISO_DATE_TIME));
-
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
+				String dateString = record[12];
 
-				String dateString = record[12]; // Ajusta el índice según la posición de `updated_at` en tu CSV
 				LocalDateTime updatedAt = LocalDateTime.parse(dateString, formatter);
 				ticket.setUpdatedAt(updatedAt);
 
